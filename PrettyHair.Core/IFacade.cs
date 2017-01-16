@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PrettyHair.Core
 {
-    public class CoreFacade
+    internal interface IFacade
     {
 
     }
