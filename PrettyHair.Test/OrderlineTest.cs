@@ -1,6 +1,6 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PrettyHair.Core.Repositories;
+using PrettyHair.DAL.Repositories;
 using PrettyHair.Core.Interfaces;
 using PrettyHair.Core.Entities;
 

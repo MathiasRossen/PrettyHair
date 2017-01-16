@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using PrettyHair.Core.Interfaces;
 using PrettyHair.Core.Entities;
-using PrettyHair.Core.Repositories;
+using PrettyHair.DAL.Repositories;
 using PrettyHair.Core.Helpers;
 
 namespace PrettyHair

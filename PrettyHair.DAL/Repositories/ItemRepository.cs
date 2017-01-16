@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using PrettyHair.Core.Interfaces;
 using PrettyHair.Core.Entities;
 
-namespace PrettyHair.Core.Repositories
+namespace PrettyHair.DAL.Repositories
 {
     public class ItemRepository
     {

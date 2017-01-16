@@ -61,6 +61,10 @@
       <Project>{82214339-d41a-40bc-bf7e-3a9dd7b9cd12}</Project>
       <Name>PrettyHair.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PrettyHair.DAL\PrettyHair.DAL.csproj">
+      <Project>{92dfa538-feab-4d2f-9eab-cdd3785343a9}</Project>
+      <Name>PrettyHair.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

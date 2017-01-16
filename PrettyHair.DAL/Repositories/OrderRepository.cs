@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using PrettyHair.Core.Entities;
 using PrettyHair.Core.Interfaces;
 
-namespace PrettyHair.Core.Repositories
+namespace PrettyHair.DAL.Repositories
 {
     public class OrderRepository
     {
