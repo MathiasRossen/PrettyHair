@@ -7,7 +7,7 @@ using PrettyHair.Core.Interfaces;
 
 namespace PrettyHair.Core.Entities
 {
-    public class Orderline : IOrderline
+    internal class Orderline : IOrderline
     {
         public IItem item { get; set; }
         public int Quantity { get; set; }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PrettyHair.Core.Interfaces
 {
-    public interface IOrderline
+    internal interface IOrderline
     {
         IItem item     { get; set; }
         int   Quantity { get; set; }

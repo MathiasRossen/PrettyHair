@@ -7,7 +7,7 @@ using PrettyHair.Core.Interfaces;
 
 namespace PrettyHair.Core.Entities
 {
-    public class Order : IOrder
+    internal class Order : IOrder
     {
         public DateTime OrderDate { get; set; }
         public DateTime DeliveryDate { get; set; }
