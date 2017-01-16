@@ -46,7 +46,7 @@
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Orderline.cs" />
     <Compile Include="Helpers\Validation.cs" />
-    <Compile Include="IFacade.cs" />
+    <Compile Include="Interfaces\IFacade.cs" />
     <Compile Include="Interfaces\ICustomer.cs" />
     <Compile Include="Interfaces\IItem.cs" />
     <Compile Include="Interfaces\IOrder.cs" />
