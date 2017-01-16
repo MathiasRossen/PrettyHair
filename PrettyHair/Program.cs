@@ -22,7 +22,7 @@ namespace PrettyHair
         static void Main(string[] args)
         {
             Program p = new Program();
-            p.IR.RefreshItems();
+            //p.IR.RefreshItems();
             
             p.MainMenu();
         }
