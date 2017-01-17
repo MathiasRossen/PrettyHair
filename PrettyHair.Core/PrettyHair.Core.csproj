@@ -42,6 +42,10 @@
   <ItemGroup>
     <Compile Include="CoreFacade.cs" />
     <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\EntityKeyGenerator3.cs" />
+    <Compile Include="Entities\EntityKeyGenerator2.cs" />
+    <Compile Include="Entities\EntityKeyGenerator.cs" />
+    <Compile Include="Interfaces\IEntityKeyGenerator.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Orderline.cs" />
