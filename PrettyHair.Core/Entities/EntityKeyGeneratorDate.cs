@@ -6,23 +6,24 @@ using System.Threading.Tasks;
 
 namespace PrettyHair.Core.Entities
 {
-    class EntityKeyGenerator : IEntityKeyGenerator
+    class EntityKeyGeneratorDate : IEntityKeyGenerator
     {
-        private static volatile EntityKeyGenerator instance;
+        private static volatile EntityKeyGeneratorDate instance;
         private static object syncRoot = new object();
         private long nextKey;
+        private DateTime dateKey;
 
-        public static EntityKeyGenerator Instance
+        public static EntityKeyGeneratorDate Instance
         {
             get
             {
-                if(instance == null)
+                if (instance == null)
                 {
                     lock (syncRoot)
                     {
-                        if( instance == null)
+                        if (instance == null)
                         {
-                            instance = new EntityKeyGenerator();
+                            instance = new EntityKeyGeneratorDate();
                         }
                     }
                 }
@@ -34,14 +35,17 @@ namespace PrettyHair.Core.Entities
         {
             get
             {
-                return ++nextKey;
+                dateKey = DateTime.Now;
+                string outputString = ""+ dateKey.Year + dateKey.Month + dateKey.Day + dateKey.Hour + dateKey.Minute + dateKey.Second;
+                return long.Parse(outputString);
             }
         }
 
-        private EntityKeyGenerator()
+        private EntityKeyGeneratorDate()
         {
 
         }
 
     }
+
 }

@@ -14,14 +14,14 @@ namespace PrettyHair.Core.Entities
             switch (keyType)
             {
                 case KeyType.Next:
-                    return EntityKeyGenerator.Instance;
+                    return EntityKeyGeneratorNext.Instance;
                 case KeyType.Random:
-                    return EntityKeyGenerator3.Instance;
+                    return EntityKeyGeneratorRandom.Instance;
                 case KeyType.Date:
-                    return EntityKeyGenerator2.Instance;
+                    return EntityKeyGeneratorDate.Instance;
                
             }
-            return EntityKeyGenerator.Instance;
+            return EntityKeyGeneratorNext.Instance;
         }
 
     }

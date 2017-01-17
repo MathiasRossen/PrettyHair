@@ -42,9 +42,9 @@
   <ItemGroup>
     <Compile Include="CoreFacade.cs" />
     <Compile Include="Entities\Customer.cs" />
-    <Compile Include="Entities\EntityKeyGenerator3.cs" />
-    <Compile Include="Entities\EntityKeyGenerator2.cs" />
-    <Compile Include="Entities\EntityKeyGenerator.cs" />
+    <Compile Include="Entities\EntityKeyGeneratorRandom.cs" />
+    <Compile Include="Entities\EntityKeyGeneratorDate.cs" />
+    <Compile Include="Entities\EntityKeyGeneratorNext.cs" />
     <Compile Include="Entities\KeyFactory.cs" />
     <Compile Include="Entities\OrderRepository.cs" />
     <Compile Include="Interfaces\IEntityKeyGenerator.cs" />

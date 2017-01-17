@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace PrettyHair.Core.Entities
 {
-    class EntityKeyGenerator3 : IEntityKeyGenerator
+    class EntityKeyGeneratorRandom : IEntityKeyGenerator
     {
-        private static volatile EntityKeyGenerator3 instance;
+        private static volatile EntityKeyGeneratorRandom instance;
         private static object syncRoot = new object();
         private long nextKey;
         private Random rand = new Random();
 
-        public static EntityKeyGenerator3 Instance
+        public static EntityKeyGeneratorRandom Instance
         {
             get
             {
@@ -23,7 +23,7 @@ namespace PrettyHair.Core.Entities
                     {
                         if (instance == null)
                         {
-                            instance = new EntityKeyGenerator3();
+                            instance = new EntityKeyGeneratorRandom();
                         }
                     }
                 }
@@ -39,7 +39,7 @@ namespace PrettyHair.Core.Entities
             }
         }
 
-        private EntityKeyGenerator3()
+        private EntityKeyGeneratorRandom()
         {
 
         }
