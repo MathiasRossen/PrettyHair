@@ -43,9 +43,9 @@ namespace PrettyHair.DAL.Repositories
             return Orders[ID];
         }
 
-        private int NextID()
+        private long NextID(KeyType keyType)
         {
-            return ++id;
+            return new KeyFactory().KeyCreator(keyType).NextKey;
         }
     }
 }
