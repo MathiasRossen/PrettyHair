@@ -45,6 +45,7 @@
     <Compile Include="Entities\EntityKeyGenerator3.cs" />
     <Compile Include="Entities\EntityKeyGenerator2.cs" />
     <Compile Include="Entities\EntityKeyGenerator.cs" />
+    <Compile Include="Entities\OrderRepository.cs" />
     <Compile Include="Interfaces\IEntityKeyGenerator.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\Order.cs" />

@@ -10,10 +10,10 @@ namespace PrettyHair.DAL.Repositories
 {
     public class OrderRepository
     {
-        private Dictionary<int, IOrder> Orders = new Dictionary<int, IOrder>();
-        private int ID;
+        private Dictionary<long, IOrder> Orders = new Dictionary<long, IOrder>();
+        private long id;
 
-        public Dictionary<int, IOrder> GetAllOrders()
+        public Dictionary<long, IOrder> GetAllOrders()
         {
             return Orders;
         }
@@ -23,12 +23,12 @@ namespace PrettyHair.DAL.Repositories
             AddOrder(order, NextID());
         }
 
-        private void AddOrder(IOrder order, int ID)
+        private void AddOrder(IOrder order, long ID)
         {
             Orders.Add(ID, order);
         }
         
-        public void RemoveByID(int ID)
+        public void RemoveByID(long ID)
         {
             Orders.Remove(ID);
         }
@@ -38,14 +38,14 @@ namespace PrettyHair.DAL.Repositories
             Orders.Clear();
         }
 
-        public IOrder GetOrderByID(int ID)
+        public IOrder GetOrderByID(long ID)
         {
             return Orders[ID];
         }
 
         private int NextID()
         {
-            return ++ID;
+            return ++id;
         }
     }
 }
