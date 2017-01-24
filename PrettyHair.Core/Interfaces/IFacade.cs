@@ -9,11 +9,11 @@ namespace PrettyHair.Core
 {
     internal interface IFacade
     {
-        List<ICustomer> GetCustomers();
+        Dictionary<int,ICustomer> GetCustomers();
 
-        List<IItem> GetItems();
+        Dictionary<int,IItem> GetItems();
 
-        List<IOrder> GetOrders();
+        Dictionary< long,IOrder> GetOrders();
 
         void AddCustomer(string firstName, string lastName);
 
@@ -21,7 +21,7 @@ namespace PrettyHair.Core
 
         void RemoveItemById(int id);
 
-        void CreateOrder(DateTime orderDate, DateTime deliveryDate, int customerID, bool Processed);
+        void CreateOrder(DateTime orderDate, DateTime deliveryDate, int customerID);
 
         void RemoveOrderById(int id);
 

@@ -4,49 +4,55 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PrettyHair.Core.Interfaces;
+using PrettyHair.Core.Repositories;
+using PrettyHair.Core.Entities;
 
 namespace PrettyHair.Core
 {
     public class CoreFacade : IFacade
     {
+        CustomerRepository cr = new CustomerRepository();
+        OrderRepository or = new OrderRepository();
+        ItemRepository ir = new ItemRepository();
+
         public void AddCustomer(string firstName, string lastName)
         {
-            throw new NotImplementedException();
+            cr.CreateCustomer(new Customer(firstName, lastName));  
         }
 
         public void AddItem(string name, string description, double price, int amount)
         {
-            throw new NotImplementedException();
+            ir.AddItems(name, description, price, amount, 1);
         }
 
-        public void CreateOrder(DateTime orderDate, DateTime deliveryDate, int customerID, bool Processed)
+        public void CreateOrder(DateTime orderDate, DateTime deliveryDate, int customerID)
         {
-            throw new NotImplementedException();
+            or.CreateOrder(new Order(deliveryDate, orderDate, customerID));
         }
 
-        public List<ICustomer> GetCustomers()
+        public Dictionary<int,ICustomer> GetCustomers()
         {
-            throw new NotImplementedException();
+            return cr.GetAllCustomers();
         }
 
-        public List<IItem> GetItems()
+        public Dictionary<int, IItem> GetItems()
         {
-            throw new NotImplementedException();
+            return ir.GetItems();
         }
 
-        public List<IOrder> GetOrders()
+        public Dictionary<long,IOrder> GetOrders()
         {
-            throw new NotImplementedException();
+            return or.GetAllOrders(); 
         }
 
         public void RemoveItemById(int id)
         {
-            throw new NotImplementedException();
+            ir.RemoveItemByID(id);
         }
 
         public void RemoveOrderById(int id)
         {
-            throw new NotImplementedException();
+            or.RemoveByID(id);
         }
     }
 }
