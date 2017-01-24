@@ -42,12 +42,8 @@
   <ItemGroup>
     <Compile Include="CoreFacade.cs" />
     <Compile Include="Entities\Customer.cs" />
-    <Compile Include="Entities\EntityKeyGeneratorRandom.cs" />
-    <Compile Include="Entities\EntityKeyGeneratorDate.cs" />
-    <Compile Include="Entities\EntityKeyGeneratorNext.cs" />
     <Compile Include="Entities\KeyFactory.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
-    <Compile Include="Interfaces\IEntityKeyGenerator.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\Order.cs" />
     <Compile Include="Entities\Orderline.cs" />

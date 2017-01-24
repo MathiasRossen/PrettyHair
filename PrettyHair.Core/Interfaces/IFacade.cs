@@ -7,11 +7,11 @@ using PrettyHair.Core.Interfaces;
 
 namespace PrettyHair.Core
 {
-    internal interface IFacade
+    public interface IFacade
     {
-        Dictionary<int,ICustomer> GetCustomers();
+        Dictionary<long,ICustomer> GetCustomers();
 
-        Dictionary<int,IItem> GetItems();
+        Dictionary<long,IItem> GetItems();
 
         Dictionary< long,IOrder> GetOrders();
 
@@ -19,11 +19,11 @@ namespace PrettyHair.Core
 
         void AddItem(string name, string description, double price, int amount);
 
-        void RemoveItemById(int id);
+        void RemoveItemById(long id);
 
-        void CreateOrder(DateTime orderDate, DateTime deliveryDate, int customerID);
+        void CreateOrder(DateTime orderDate, DateTime deliveryDate, long customerID);
 
-        void RemoveOrderById(int id);
+        void RemoveOrderById(long id);
 
     }
 }

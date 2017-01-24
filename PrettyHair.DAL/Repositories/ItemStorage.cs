@@ -12,137 +12,64 @@ namespace PrettyHair.DAL.Repositories
 {
     public class ItemStorage
     {
-        private static string connectionstring = "DATABASE CONNECTION STRING";
-        private Dictionary<int, IItem> Items = new Dictionary<int, IItem>();
-        private int ID = 0;
+        private static volatile ItemStorage instance;
+        private static object padLock;
 
-        public ItemStorage()
+        private Dictionary<long, IItem> itemCollection;
+        private IEntityKeyGenerator keyGen;
+
+        public static ItemStorage Instance
         {
-
-        }
-
-        public Dictionary<int, IItem> GetItems()
-        {
-            return Items;
-        }
-
-        //public void RefreshItems()
-        //{
-        //    Clear();
-
-        //    using (SqlConnection db = new SqlConnection(connectionstring))
-        //    {
-        //        db.Open();
-
-        //        SqlCommand sql = new SqlCommand("SELECT * FROM ITEMS", db);
-        //        sql.CommandType = CommandType.Text;
-
-        //        SqlDataReader reader = sql.ExecuteReader();
-
-        //        if (reader.HasRows)
-        //        {
-        //            while (reader.Read())
-        //            {
-        //                IItem item       = new Item();
-        //                item.Name        = reader["ItemName"].ToString();
-        //                item.Description = reader["ItemDesc"].ToString();
-        //                item.Price       = (double)reader["ItemPrice"];
-        //                item.Amount      = (int)reader["ItemAmount"];
-
-        //                AddItem(item, (int)reader["ItemID"]);
-        //            }
-        //        }
-        //    }
-        //}
-
-        public void AddItems(string name, string description, double itemPrice, int quantity, int itemId)
-        {
-            //Clear();
-                      
-            IItem item = new Item();
-            item.Name = name;
-            item.Description = description;
-            item.Price = itemPrice;
-            item.Amount = quantity;
-                  
-            AddItem(item, itemId);
-        
-        }
-
-        public void CreateItem(IItem item)
-        {
-            using (SqlConnection db = new SqlConnection(connectionstring))
+            get
             {
-                db.Open();
-
-                SqlCommand sql = new SqlCommand("InsertItem", db);
-                sql.CommandType = CommandType.StoredProcedure;
-
-                sql.Parameters.Add(new SqlParameter("ItemName",   item.Name));
-                sql.Parameters.Add(new SqlParameter("ItemDesc",   item.Description));
-                sql.Parameters.Add(new SqlParameter("ItemPrice",  item.Price));
-                sql.Parameters.Add(new SqlParameter("ItemAmount", item.Amount));
-
-                sql.ExecuteNonQuery();
+                if (instance == null)
+                {
+                    lock (padLock)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new ItemStorage();
+                        }
+                    }
+                }
+                return instance;
             }
-
-            AddItem(item, GetLastInsertedID());
         }
 
-        public int GetLastInsertedID()
+        public Dictionary<long, IItem> ItemCollection
         {
-            int ID = 0;
-
-            using (SqlConnection db = new SqlConnection(connectionstring))
-            {
-                db.Open();
-
-                SqlCommand sql  = new SqlCommand("LastItemID", db);
-                sql.CommandType = CommandType.StoredProcedure;
-                SqlDataReader reader = sql.ExecuteReader();
-
-                reader.Read();
-                ID = (int)reader["ItemID"];
-            }
-
-            return ID;
+            get { return itemCollection; }
         }
 
-        private void AddItem(IItem item, int ID)
+        private ItemStorage()
         {
-            Items.Add(ID, item);
+            itemCollection = new Dictionary<long, IItem>();
+            keyGen = new EntityKeyGeneratorNext();
+
+            itemCollection.Add(keyGen.NextKey, new Item("Saks", "Saks til hår", 299.95, 10));
+            itemCollection.Add(keyGen.NextKey, new Item("Trimmer", "Mach 3 turbo!", 349.95, 5));
+            itemCollection.Add(keyGen.NextKey, new Item("Shampoo", "Sanex", 29.95, 52));
+            itemCollection.Add(keyGen.NextKey, new Item("Damplokomotiv", "Gammelt tog fra 1902", 1199995.95, 1));
+            itemCollection.Add(keyGen.NextKey, new Item("Dank weed", "Don't let your memes be dreams!", 420, 9001));
+            itemCollection.Add(keyGen.NextKey, new Item("Hår Børste", "Til håret!", 10, 3));
         }
 
-        public void RemoveItemByID(int ID)
+        public void AddItem(IItem item)
         {
-            using (SqlConnection db = new SqlConnection(connectionstring))
-            {
-                db.Open();
-
-                SqlCommand sql = new SqlCommand("RemoveItem", db);
-                sql.CommandType = CommandType.StoredProcedure;
-
-                sql.Parameters.Add(new SqlParameter("ID", ID));
-
-                sql.ExecuteNonQuery();
-            }
-
-            Items.Remove(ID);
+            itemCollection.Add(keyGen.NextKey, item);
         }
 
-        public IItem GetItemByID(int ID)
+        public void DeleteItemById(long index)
         {
-            return Items[ID];
+            itemCollection.Remove(index);
         }
 
-        public void Clear()
+        public void EditItem(long index, string name, string description, double price, int amount)
         {
-            Items.Clear();
-        }
-
-        public int NextID()
-        {
-            return ++ID;
+            itemCollection[index].Name = name;
+            itemCollection[index].Description = description;
+            itemCollection[index].Price = price;
+            itemCollection[index].Amount = amount;
         }
     }
 }

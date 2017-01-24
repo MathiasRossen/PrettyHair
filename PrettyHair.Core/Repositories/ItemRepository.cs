@@ -13,7 +13,7 @@ namespace PrettyHair.Core.Repositories
     internal class ItemRepository
     {
         private static string connectionstring = "DATABASE CONNECTION STRING";
-        private Dictionary<int, IItem> Items = new Dictionary<int, IItem>();
+        private Dictionary<long, IItem> Items = new Dictionary<long, IItem>();
         private int ID = 0;
 
         public ItemRepository()
@@ -21,7 +21,7 @@ namespace PrettyHair.Core.Repositories
 
         }
 
-        public Dictionary<int, IItem> GetItems()
+        public Dictionary<long, IItem> GetItems()
         {
             return Items;
         }
@@ -55,7 +55,7 @@ namespace PrettyHair.Core.Repositories
         //    }
         //}
 
-        public void AddItems(string name, string description, double itemPrice, int quantity, int itemId)
+        public void AddItems(string name, string description, double itemPrice, int quantity, long itemId)
         {
             //Clear();
                       
@@ -108,12 +108,12 @@ namespace PrettyHair.Core.Repositories
             return ID;
         }
 
-        private void AddItem(IItem item, int ID)
+        private void AddItem(IItem item, long ID)
         {
             Items.Add(ID, item);
         }
 
-        public void RemoveItemByID(int ID)
+        public void RemoveItemByID(long ID)
         {
             using (SqlConnection db = new SqlConnection(connectionstring))
             {
@@ -130,7 +130,7 @@ namespace PrettyHair.Core.Repositories
             Items.Remove(ID);
         }
 
-        public IItem GetItemByID(int ID)
+        public IItem GetItemByID(long ID)
         {
             return Items[ID];
         }

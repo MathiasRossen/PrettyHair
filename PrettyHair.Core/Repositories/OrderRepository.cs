@@ -8,7 +8,7 @@ using PrettyHair.Core.Interfaces;
 
 namespace PrettyHair.Core.Repositories
 {
-    public class OrderRepository
+    internal class OrderRepository
     {
         private Dictionary<long, IOrder> Orders = new Dictionary<long, IOrder>();
         private long id;

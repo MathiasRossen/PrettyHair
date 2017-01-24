@@ -11,10 +11,10 @@ namespace PrettyHair.Core.Entities
     {
         public DateTime OrderDate { get; set; }
         public DateTime DeliveryDate { get; set; }
-        public int CustomerID { get; set; }
+        public long CustomerID { get; set; }
         public bool Processed { get; set; }
 
-        public Order(DateTime deliverydate, DateTime orderdate, int cID)
+        public Order(DateTime deliverydate, DateTime orderdate, long cID)
         {
             if ((DateTime.Compare(deliverydate, orderdate)) < 0)
                 throw new ArgumentOutOfRangeException();

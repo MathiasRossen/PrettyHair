@@ -8,49 +8,63 @@ using PrettyHair.Core.Interfaces;
 
 namespace PrettyHair.DAL.Repositories
 {
-    public class CustomerStorage
+    internal class CustomerStorage
     {
-        private Dictionary<int, ICustomer> Customers = new Dictionary<int, ICustomer>();
-        private int ID;
+        private static volatile CustomerStorage instance;
+        private static object padLock;
 
-        public Dictionary<int, ICustomer> GetAllCustomers()
+        private Dictionary<long, ICustomer> customerCollection;
+        private IEntityKeyGenerator keyGen;
+
+        public static CustomerStorage Instance
         {
-            return Customers;
+            get
+            {
+                if(instance == null)
+                {
+                    lock (padLock)
+                    {
+                        if(instance == null)
+                        {
+                            instance = new CustomerStorage();
+                        }
+                    }
+                }
+                return instance;
+            }
         }
 
-        public void CreateCustomer(ICustomer customer)
+        public Dictionary<long, ICustomer> CustomerCollection
         {
-            AddCustomer(customer, NextID());
+            get { return customerCollection; }
         }
 
-        public void RemoveCustomerByID(int ID)
+        private CustomerStorage()
         {
-            Customers.Remove(ID);
+            customerCollection = new Dictionary<long, ICustomer>();
+            keyGen = new EntityKeyGeneratorNext();
+
+            customerCollection.Add(keyGen.NextKey, new Customer("Per", "Hansen"));
+            customerCollection.Add(keyGen.NextKey, new Customer("Lone", "Christensen"));
+            customerCollection.Add(keyGen.NextKey, new Customer("Tyrone", "Jackson"));
+            customerCollection.Add(keyGen.NextKey, new Customer("Kim", "Møller"));
+            customerCollection.Add(keyGen.NextKey, new Customer("Nikolaj", "Grill"));
         }
 
-        public void Clear()
+        public void AddCustomer(ICustomer customer)
         {
-            Customers.Clear();
+            customerCollection.Add(keyGen.NextKey, customer);
         }
 
-        public bool CustomerExistFromID(int ID)
+        public void DeleteCustomerById(long index)
         {
-            return Customers.ContainsKey(ID);
+            customerCollection.Remove(index);
         }
 
-        public ICustomer GetCustomerByID(int ID)
+        public void EditCustomer(long index, string firstName, string lastName)
         {
-            return Customers[ID];
-        }
-
-        private int NextID()
-        {
-            return ++ID;
-        }
-
-        private void AddCustomer(ICustomer customer, int ID)
-        {
-            Customers.Add(ID, customer);
+            customerCollection[index].Firstname = firstName;
+            customerCollection[index].Lastname = lastName;
         }
     }
 }

@@ -53,17 +53,17 @@ namespace PrettyHair.Core
             ir.AddItems(name, description, price, amount, 1);
         }
 
-        public void CreateOrder(DateTime orderDate, DateTime deliveryDate, int customerID)
+        public void CreateOrder(DateTime orderDate, DateTime deliveryDate, long customerID)
         {
             or.CreateOrder(new Order(deliveryDate, orderDate, customerID));
         }
 
-        public Dictionary<int,ICustomer> GetCustomers()
+        public Dictionary<long,ICustomer> GetCustomers()
         {
             return cr.GetAllCustomers();
         }
 
-        public Dictionary<int, IItem> GetItems()
+        public Dictionary<long, IItem> GetItems()
         {
             return ir.GetItems();
         }
@@ -73,12 +73,12 @@ namespace PrettyHair.Core
             return or.GetAllOrders(); 
         }
 
-        public void RemoveItemById(int id)
+        public void RemoveItemById(long id)
         {
             ir.RemoveItemByID(id);
         }
 
-        public void RemoveOrderById(int id)
+        public void RemoveOrderById(long id)
         {
             or.RemoveByID(id);
         }

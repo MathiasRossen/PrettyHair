@@ -10,7 +10,7 @@ namespace PrettyHair.Core.Interfaces
     {
         DateTime OrderDate    { get; set; }
         DateTime DeliveryDate { get; set; }
-        int      CustomerID   { get; set; }
+        long     CustomerID   { get; set; }
         bool     Processed    { get; set; }
     }
 }

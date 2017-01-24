@@ -19,7 +19,7 @@ namespace PrettyHair.DAL
 
         private DALFacade()
         {
-            itemRepo = new ItemStorage();
+            itemRepo = ItemStorage.Instance;
         }
 
         public static DALFacade Instance

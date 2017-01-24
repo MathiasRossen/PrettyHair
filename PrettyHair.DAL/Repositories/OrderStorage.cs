@@ -10,42 +10,65 @@ namespace PrettyHair.DAL.Repositories
 {
     public class OrderStorage
     {
-        private Dictionary<int, IOrderline> Orderlines = new Dictionary<int, IOrderline>();
-        private int ID;
+        private static volatile OrderStorage instance;
+        private static object padLock;
 
-        public Dictionary<int, IOrderline> GetAllOrderlines()
+        private Dictionary<long, IOrder> orderCollection;
+        private IEntityKeyGenerator keyGen;
+
+        public static OrderStorage Instance
         {
-            return Orderlines;
+            get
+            {
+                if (instance == null)
+                {
+                    lock (padLock)
+                    {
+                        if (instance == null)
+                        {
+                            instance = new OrderStorage();
+                        }
+                    }
+                }
+                return instance;
+            }
         }
 
-        public void CreateOrderline(IOrderline orderline)
+        public Dictionary<long, IOrder> OrderCollection
         {
-            AddOrderline(orderline, NextID());
+            get { return orderCollection; }
         }
 
-        private void AddOrderline(IOrderline orderline, int ID)
+        private OrderStorage()
         {
-            Orderlines.Add(ID, orderline);
+            orderCollection = new Dictionary<long, IOrder>();
+            keyGen = new EntityKeyGeneratorNext();
+
+            orderCollection.Add(keyGen.NextKey, new Order(new DateTime(2017, 2, 5), new DateTime(2017, 1, 28), keyGen.NextKey));
+            orderCollection.Add(keyGen.NextKey, new Order(new DateTime(2017, 1, 30), new DateTime(2017, 1, 24), keyGen.NextKey));
+            orderCollection.Add(keyGen.NextKey, new Order(new DateTime(2017, 1, 25), new DateTime(2017, 1, 20), keyGen.NextKey));
+            orderCollection.Add(keyGen.NextKey, new Order(new DateTime(2017, 2, 12), new DateTime(2017, 1, 23), keyGen.NextKey));
         }
 
-        public void RemoveByID(int ID)
+        public void AddOrder(IOrder order)
         {
-            Orderlines.Remove(ID);
+            orderCollection.Add(keyGen.NextKey, order);
         }
 
-        public void Clear()
+        public void DeleteOrderById(long index)
         {
-            Orderlines.Clear();
+            orderCollection.Remove(index);
         }
 
-        public IOrderline GetOrderlineByID(int ID)
+        public void EditItem(long index, DateTime orderDate, DateTime deliveryDate)
         {
-            return Orderlines[ID];
+            orderCollection[index].OrderDate = orderDate;
+            orderCollection[index].DeliveryDate = deliveryDate;
         }
 
-        private int NextID()
+        public void ProcessOrder(long index)
         {
-            return ++ID;
+            orderCollection[index].Processed = true;
         }
     }
 }
