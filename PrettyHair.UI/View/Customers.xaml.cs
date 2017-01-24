@@ -10,35 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using PrettyHair.UI;
 
 namespace PrettyHair.UI.View
 {
     /// <summary>
     /// Interaction logic for Customer.xaml
     /// </summary>
-    public partial class Customer : Window
+    public partial class Customer : UserControl
     {
         public Customer()
         {
             InitializeComponent();
-        }
-
-        private void buttonClose_Click(object sender, RoutedEventArgs e)
-        {
-            
-            this.Close();
-        }
-
-        private void buttonAddCustomer_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void buttonGetCustomer_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

@@ -27,23 +27,5 @@ namespace PrettyHair.UI
         {
             InitializeComponent();
         }
-
-        private void buttonOrders_Click(object sender, RoutedEventArgs e)
-        {
-            Orders orders = new Orders();
-            orders.Show();
-        }
-
-        private void buttonCustomers_Click(object sender, RoutedEventArgs e)
-        {
-            Customer costumer = new Customer();
-            costumer.Show();
-        }
-
-        private void buttonItems_Click(object sender, RoutedEventArgs e)
-        {
-            Items items = new Items();
-            items.Show();
-        }
     }
 }

@@ -10,6 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace PrettyHair.UI.View
@@ -17,16 +18,11 @@ namespace PrettyHair.UI.View
     /// <summary>
     /// Interaction logic for Orders.xaml
     /// </summary>
-    public partial class Orders : Window
+    public partial class Orders : UserControl
     {
         public Orders()
         {
             InitializeComponent();
-        }
-
-        private void buttonClose_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }

@@ -4,12 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PrettyHair.UI"
+        xmlns:views="clr-namespace:PrettyHair.UI.View"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="buttonOrders" Content="Orders" HorizontalAlignment="Left" Margin="50,29,0,0" VerticalAlignment="Top" Width="75" Click="buttonOrders_Click"/>
-        <Button x:Name="buttonCustomers" Content="Customers" HorizontalAlignment="Left" Margin="50,72,0,0" VerticalAlignment="Top" Width="75" Click="buttonCustomers_Click"/>
-        <Button x:Name="buttonItems" Content="Items" HorizontalAlignment="Left" Margin="50,117,0,0" VerticalAlignment="Top" Width="75" Click="buttonItems_Click"/>
-
+        <TabControl>
+            <TabItem Header="Customer">
+                <views:Customer x:Name ="CustomerViewControl" />
+            </TabItem>
+            <TabItem Header="Orders">
+                <views:Orders x:Name="OrderViewControl" />
+            </TabItem>
+            <TabItem Header="Items">
+                <views:Items x:Name="ItemViewControl" />
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>

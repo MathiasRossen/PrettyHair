@@ -5,12 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using PrettyHair.Core.Entities;
 using PrettyHair.Core.Interfaces;
+using System.Collections.ObjectModel;
 
 namespace PrettyHair.Core.Repositories
 {
     internal class CustomerRepository
     {
         private Dictionary<long, ICustomer> Customers = new Dictionary<long, ICustomer>();
+        
         private long ID;
 
         public Dictionary<long, ICustomer> GetAllCustomers()
