@@ -10,13 +10,13 @@ namespace PrettyHair.Test
     [TestClass]
     public class CustomerTest
     {
-        //CustomerRepository CR = new CustomerRepository();
-        IFacade coreFacade = CoreFacade.Instance;
+        ////CustomerRepository CR = new CustomerRepository();
+        //IFacade coreFacade = CoreFacade.Instance;
 
-        ICustomer tina = new Customer("Tina", "Gurli");
-        ICustomer lone = new Customer("", "");
-        ICustomer ulla = new Customer("", "");
-        ICustomer karl = new Customer("", "");
+        //ICustomer tina = new Customer("Tina", "Gurli");
+        //ICustomer lone = new Customer("", "");
+        //ICustomer ulla = new Customer("", "");
+        //ICustomer karl = new Customer("", "");
 
         //[TestMethod]
         //public void EmptyRepo()

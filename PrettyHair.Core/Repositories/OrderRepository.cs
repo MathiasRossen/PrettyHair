@@ -20,7 +20,7 @@ namespace PrettyHair.Core.Repositories
 
         public void CreateOrder(IOrder order)
         {
-            AddOrder(order, NextID(KeyType.Next));
+            //AddOrder(order, NextID(KeyType.Next));
         }
 
         private void AddOrder(IOrder order, long ID)
@@ -43,9 +43,9 @@ namespace PrettyHair.Core.Repositories
             return Orders[ID];
         }
 
-        private long NextID(KeyType keyType)
-        {
-            return new KeyFactory().KeyCreator(keyType).NextKey;
-        }
+        //private long NextID(KeyType keyType)
+        //{
+        //    return new KeyFactory().KeyCreator(keyType).NextKey;
+        //}
     }
 }

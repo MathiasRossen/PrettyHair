@@ -12,7 +12,7 @@ namespace PrettyHair.Core
     public class CoreFacade : IFacade
     {
         private static volatile CoreFacade instance;
-        private static object padLock;
+        private static object padLock = new object();
 
         CustomerRepository cr;
         OrderRepository or;

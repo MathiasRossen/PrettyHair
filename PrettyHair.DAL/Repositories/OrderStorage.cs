@@ -8,10 +8,10 @@ using PrettyHair.Core.Interfaces;
 
 namespace PrettyHair.DAL.Repositories
 {
-    public class OrderStorage
+    internal class OrderStorage
     {
         private static volatile OrderStorage instance;
-        private static object padLock;
+        private static object padLock = new object();
 
         private Dictionary<long, IOrder> orderCollection;
         private IEntityKeyGenerator keyGen;
@@ -42,7 +42,7 @@ namespace PrettyHair.DAL.Repositories
         private OrderStorage()
         {
             orderCollection = new Dictionary<long, IOrder>();
-            keyGen = new EntityKeyGeneratorNext();
+            keyGen = new KeyFactory(KeyType.Next).KeyCreator();
 
             orderCollection.Add(keyGen.NextKey, new Order(new DateTime(2017, 2, 5), new DateTime(2017, 1, 28), keyGen.NextKey));
             orderCollection.Add(keyGen.NextKey, new Order(new DateTime(2017, 1, 30), new DateTime(2017, 1, 24), keyGen.NextKey));
@@ -60,7 +60,7 @@ namespace PrettyHair.DAL.Repositories
             orderCollection.Remove(index);
         }
 
-        public void EditItem(long index, DateTime orderDate, DateTime deliveryDate)
+        public void EditOrder(long index, DateTime orderDate, DateTime deliveryDate)
         {
             orderCollection[index].OrderDate = orderDate;
             orderCollection[index].DeliveryDate = deliveryDate;

@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="CoreFacade.cs" />
     <Compile Include="Entities\Customer.cs" />
-    <Compile Include="Entities\KeyFactory.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\Order.cs" />

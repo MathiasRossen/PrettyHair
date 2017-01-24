@@ -10,10 +10,10 @@ using PrettyHair.Core.Entities;
 
 namespace PrettyHair.DAL.Repositories
 {
-    public class ItemStorage
+    internal class ItemStorage
     {
         private static volatile ItemStorage instance;
-        private static object padLock;
+        private static object padLock = new object();
 
         private Dictionary<long, IItem> itemCollection;
         private IEntityKeyGenerator keyGen;
@@ -44,7 +44,7 @@ namespace PrettyHair.DAL.Repositories
         private ItemStorage()
         {
             itemCollection = new Dictionary<long, IItem>();
-            keyGen = new EntityKeyGeneratorNext();
+            keyGen = new KeyFactory(KeyType.Next).KeyCreator();
 
             itemCollection.Add(keyGen.NextKey, new Item("Saks", "Saks til hår", 299.95, 10));
             itemCollection.Add(keyGen.NextKey, new Item("Trimmer", "Mach 3 turbo!", 349.95, 5));

@@ -45,6 +45,7 @@
     <Compile Include="EntityKeyGeneratorNext.cs" />
     <Compile Include="EntityKeyGeneratorRandom.cs" />
     <Compile Include="IEntityKeyGenerator.cs" />
+    <Compile Include="KeyFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CustomerStorage.cs" />
     <Compile Include="Repositories\ItemStorage.cs" />

@@ -11,7 +11,7 @@ namespace PrettyHair.DAL.Repositories
     internal class CustomerStorage
     {
         private static volatile CustomerStorage instance;
-        private static object padLock;
+        private static object padLock = new object();
 
         private Dictionary<long, ICustomer> customerCollection;
         private IEntityKeyGenerator keyGen;
@@ -42,7 +42,7 @@ namespace PrettyHair.DAL.Repositories
         private CustomerStorage()
         {
             customerCollection = new Dictionary<long, ICustomer>();
-            keyGen = new EntityKeyGeneratorNext();
+            keyGen = new KeyFactory(KeyType.Next).KeyCreator();
 
             customerCollection.Add(keyGen.NextKey, new Customer("Per", "Hansen"));
             customerCollection.Add(keyGen.NextKey, new Customer("Lone", "Christensen"));

@@ -4,14 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrettyHair.Core.Entities
+namespace PrettyHair.DAL
 {
     public enum KeyType { Next, Random, Date}
     public class KeyFactory
     {
-        public IEntityKeyGenerator KeyCreator(KeyType keyType)
+        public KeyType KeyType { get; set; }
+
+        public KeyFactory(KeyType keyType)
         {
-            switch (keyType)
+            KeyType = keyType;
+        }
+        public IEntityKeyGenerator KeyCreator()
+        {
+            switch (KeyType)
             {
                 case KeyType.Next:
                     return EntityKeyGeneratorNext.Instance;
