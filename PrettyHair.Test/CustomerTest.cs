@@ -9,7 +9,7 @@ namespace PrettyHair.Test
     [TestClass]
     public class CustomerTest
     {
-        CustomerRepository CR = new CustomerRepository();
+        CustomerStorage CR = new CustomerStorage();
         ICustomer tina = new Customer("Tina", "Gurli");
         ICustomer lone = new Customer("", "");
         ICustomer ulla = new Customer("", "");

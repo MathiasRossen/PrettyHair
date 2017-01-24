@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PrettyHair.Core.Helpers
 {
-    internal class Validation
+    public class Validation
     {
         public static bool StringTryParse(string s, out string output)
         {

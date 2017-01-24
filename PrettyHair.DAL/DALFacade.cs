@@ -15,11 +15,11 @@ namespace PrettyHair.DAL
         private static volatile DALFacade instance;
         private static object padLock;
 
-        ItemRepository itemRepo;
+        ItemStorage itemRepo;
 
         private DALFacade()
         {
-            itemRepo = new ItemRepository();
+            itemRepo = new ItemStorage();
         }
 
         public static DALFacade Instance

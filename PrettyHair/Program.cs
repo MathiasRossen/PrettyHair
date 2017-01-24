@@ -5,20 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using PrettyHair.Core.Interfaces;
 using PrettyHair.Core.Entities;
-using PrettyHair.DAL.Repositories;
+using PrettyHair.Core.Repositories;
 using PrettyHair.Core.Helpers;
 
 namespace PrettyHair
 {
     class Program
     {
-        private ItemRepository IR       = new ItemRepository();
-        private CustomerRepository CR   = new CustomerRepository();
-        private OrderlineRepository OLR = new OrderlineRepository();
-        private OrderRepository OR      = new OrderRepository();
-
-        public Program() { }
-
         static void Main(string[] args)
         {
             Program p = new Program();

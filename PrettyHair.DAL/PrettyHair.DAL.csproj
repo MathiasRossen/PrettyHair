@@ -42,9 +42,9 @@
   <ItemGroup>
     <Compile Include="DALFacade.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\CustomerRepository.cs" />
-    <Compile Include="Repositories\ItemRepository.cs" />
-    <Compile Include="Repositories\OrderlineRepository.cs" />
+    <Compile Include="Repositories\CustomerStorage.cs" />
+    <Compile Include="Repositories\ItemStorage.cs" />
+    <Compile Include="Repositories\OrderStorage.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\PrettyHair.Core\PrettyHair.Core.csproj">

@@ -10,13 +10,13 @@ using PrettyHair.Core.Entities;
 
 namespace PrettyHair.DAL.Repositories
 {
-    public class ItemRepository
+    public class ItemStorage
     {
         private static string connectionstring = "DATABASE CONNECTION STRING";
         private Dictionary<int, IItem> Items = new Dictionary<int, IItem>();
         private int ID = 0;
 
-        public ItemRepository()
+        public ItemStorage()
         {
 
         }

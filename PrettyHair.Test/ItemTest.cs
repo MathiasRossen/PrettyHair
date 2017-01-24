@@ -16,7 +16,7 @@ namespace PrettyHair.Test
     [TestClass]
     public class ItemTest
     {
-        ItemRepository ItemRepo = new ItemRepository();
+        ItemStorage ItemRepo = new ItemStorage();
 
         IItem shampoo = new Item("Shampoo",  "500ml shampoo", 49.99, 2);
         IItem scissor = new Item("Saks",     "En sort saks",  30.00, 1);

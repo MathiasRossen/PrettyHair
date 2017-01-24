@@ -8,7 +8,7 @@ using PrettyHair.Core.Interfaces;
 
 namespace PrettyHair.DAL.Repositories
 {
-    public class CustomerRepository
+    public class CustomerStorage
     {
         private Dictionary<int, ICustomer> Customers = new Dictionary<int, ICustomer>();
         private int ID;

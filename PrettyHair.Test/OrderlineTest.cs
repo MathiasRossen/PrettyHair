@@ -1,15 +1,15 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using PrettyHair.DAL.Repositories;
 using PrettyHair.Core.Interfaces;
 using PrettyHair.Core.Entities;
+using PrettyHair.Core.Repositories;
 
 namespace PrettyHair.Test
 {
     [TestClass]
     public class OrderlineTest
     {
-        public OrderlineRepository OLR = new OrderlineRepository();
+        public OrderStorage OLR = new OrderStorage();
 
         public IOrderline orderline1 = new Orderline();
         public IOrderline orderline2 = new Orderline();
