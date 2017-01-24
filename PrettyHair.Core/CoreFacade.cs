@@ -14,9 +14,9 @@ namespace PrettyHair.Core
         private static volatile CoreFacade instance;
         private static object padLock;
 
-        CustomerRepository cr = new CustomerRepository();
-        OrderRepository or = new OrderRepository();
-        ItemRepository ir = new ItemRepository();
+        CustomerRepository cr;
+        OrderRepository or;
+        ItemRepository ir;
 
         public static CoreFacade Instance
         {
@@ -34,6 +34,13 @@ namespace PrettyHair.Core
                 }
                 return instance;
             }
+        }
+
+        private CoreFacade()
+        {
+            cr = new CustomerRepository();
+            or = new OrderRepository();
+            ir = new ItemRepository();
         }
 
         public void AddCustomer(string firstName, string lastName)
