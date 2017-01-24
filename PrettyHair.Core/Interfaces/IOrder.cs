@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PrettyHair.Core.Interfaces
 {
-    internal interface IOrder
+    public interface IOrder
     {
         DateTime OrderDate    { get; set; }
         DateTime DeliveryDate { get; set; }
