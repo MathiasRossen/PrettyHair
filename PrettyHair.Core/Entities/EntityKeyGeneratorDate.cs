@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PrettyHair.Core.Entities
 {
-    class EntityKeyGeneratorDate : IEntityKeyGenerator
+    public class EntityKeyGeneratorDate : IEntityKeyGenerator
     {
         private static volatile EntityKeyGeneratorDate instance;
         private static object syncRoot = new object();

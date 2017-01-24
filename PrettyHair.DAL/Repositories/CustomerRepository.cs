@@ -20,8 +20,6 @@ namespace PrettyHair.DAL.Repositories
 
         public void CreateCustomer(ICustomer customer)
         {
-            // Database call
-
             AddCustomer(customer, NextID());
         }
 

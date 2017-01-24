@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace PrettyHair.Core.Entities
 {
     public enum KeyType { Next, Random, Date}
-    class KeyFactory
+    public class KeyFactory
     {
         public IEntityKeyGenerator KeyCreator(KeyType keyType)
         {

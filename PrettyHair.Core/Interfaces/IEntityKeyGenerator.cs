@@ -1,6 +1,6 @@
 ﻿namespace PrettyHair.Core.Entities
 {
-    interface IEntityKeyGenerator
+    public interface IEntityKeyGenerator
     {
         long NextKey { get; }
     }

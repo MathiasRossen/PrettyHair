@@ -7,7 +7,7 @@ using PrettyHair.Core.Interfaces;
 
 namespace PrettyHair.Core.Entities
 {
-    internal class Customer : ICustomer
+    public class Customer : ICustomer
     {
         public string Firstname { get; set; }
         public string Lastname { get; set; }

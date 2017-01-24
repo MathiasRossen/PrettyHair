@@ -20,8 +20,6 @@ namespace PrettyHair.Core.Repositories
 
         public void CreateCustomer(ICustomer customer)
         {
-            // Database call
-
             AddCustomer(customer, NextID());
         }
 
