@@ -1,0 +1,15 @@
+﻿<Window x:Class="PrettyHair.UI.View.Customer"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PrettyHair.UI.View"
+        mc:Ignorable="d"
+        Title="Customer" Height="300" Width="300">
+    <Grid>
+        <Button x:Name="buttonClose" Content="Close Window" HorizontalAlignment="Left" Margin="42,29,0,0" VerticalAlignment="Top" Width="99" Click="buttonClose_Click"/>
+        <Button x:Name="buttonAddCustomer" Content="Add Customer" HorizontalAlignment="Left" Margin="42,67,0,0" VerticalAlignment="Top" Width="99" Click="buttonAddCustomer_Click"/>
+        <Button x:Name="buttonGetCustomer" Content="Get Customer" HorizontalAlignment="Left" Margin="42,107,0,0" VerticalAlignment="Top" Width="99" Click="buttonGetCustomer_Click"/>
+
+    </Grid>
+</Window>
