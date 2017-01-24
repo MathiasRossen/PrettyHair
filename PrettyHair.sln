@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyHair.Test", "PrettyHa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyHair.DAL", "PrettyHair.DAL\PrettyHair.DAL.csproj", "{92DFA538-FEAB-4D2F-9EAB-CDD3785343A9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyHair.UI", "PrettyHair.UI\PrettyHair.UI.csproj", "{550D16E4-CD97-4A67-95A8-1B4153A704A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{92DFA538-FEAB-4D2F-9EAB-CDD3785343A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{92DFA538-FEAB-4D2F-9EAB-CDD3785343A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{92DFA538-FEAB-4D2F-9EAB-CDD3785343A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{550D16E4-CD97-4A67-95A8-1B4153A704A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{550D16E4-CD97-4A67-95A8-1B4153A704A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{550D16E4-CD97-4A67-95A8-1B4153A704A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{550D16E4-CD97-4A67-95A8-1B4153A704A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
