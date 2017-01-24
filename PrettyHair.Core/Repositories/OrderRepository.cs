@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using PrettyHair.Core.Entities;
 using PrettyHair.Core.Interfaces;
 
-namespace PrettyHair.DAL.Repositories
+namespace PrettyHair.Core.Repositories
 {
     public class OrderRepository
     {
@@ -20,7 +20,7 @@ namespace PrettyHair.DAL.Repositories
 
         public void CreateOrder(IOrder order)
         {
-            AddOrder(order, NextID());
+            AddOrder(order, NextID(KeyType.Next));
         }
 
         private void AddOrder(IOrder order, long ID)

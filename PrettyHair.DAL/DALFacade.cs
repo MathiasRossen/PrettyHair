@@ -69,6 +69,7 @@ namespace PrettyHair.DAL
                     }
                 }
             }
+            return null;
         }
     }
 }
