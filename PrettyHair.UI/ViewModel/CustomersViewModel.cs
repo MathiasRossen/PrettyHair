@@ -12,7 +12,7 @@ namespace PrettyHair.UI.ViewModel
     public class CustomersViewModel
     {
         private CoreFacade coreFacade = CoreFacade.Instance;
-        public Dictionary<long, ICustomer> CustomerCollection
+        public List<ICustomer> CustomerCollection
         {
             get { return coreFacade.GetCustomers(); }
         }
