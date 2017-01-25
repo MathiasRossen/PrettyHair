@@ -12,6 +12,7 @@ namespace PrettyHair.Core.Interfaces
         double Price       { get; set; }
         int    Amount      { get; set; }
         string Description { get; set; }
+        long ItemId { get; }
 
         void AdjustPrice(double price);
         void AdjustAmount(int offset);

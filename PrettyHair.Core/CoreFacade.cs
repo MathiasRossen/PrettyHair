@@ -45,7 +45,7 @@ namespace PrettyHair.Core
 
         public void AddCustomer(string firstName, string lastName)
         {
-            cr.CreateCustomer(new Customer(firstName, lastName));  
+            //cr.CreateCustomer(new Customer(firstName, lastName));  
         }
 
         public void AddItem(string name, string description, double price, int amount)
@@ -55,20 +55,20 @@ namespace PrettyHair.Core
 
         public void CreateOrder(DateTime orderDate, DateTime deliveryDate, long customerID)
         {
-            or.CreateOrder(new Order(deliveryDate, orderDate, customerID));
+            //or.CreateOrder(new Order(deliveryDate, orderDate, customerID));
         }
 
-        public Dictionary<long,ICustomer> GetCustomers()
+        public List<ICustomer> GetCustomers()
         {
             return cr.GetAllCustomers();
         }
 
-        public Dictionary<long, IItem> GetItems()
+        public List<IItem> GetItems()
         {
             return ir.GetItems();
         }
 
-        public Dictionary<long,IOrder> GetOrders()
+        public List<IOrder> GetOrders()
         {
             return or.GetAllOrders(); 
         }

@@ -13,7 +13,7 @@ namespace PrettyHair.DAL.Repositories
         private static volatile OrderStorage instance;
         private static object padLock = new object();
 
-        private Dictionary<long, IOrder> orderCollection;
+        private List<IOrder> orderCollection;
         private IEntityKeyGenerator keyGen;
 
         public static OrderStorage Instance
@@ -34,41 +34,41 @@ namespace PrettyHair.DAL.Repositories
             }
         }
 
-        public Dictionary<long, IOrder> OrderCollection
+        public List<IOrder> OrderCollection
         {
             get { return orderCollection; }
         }
 
         private OrderStorage()
         {
-            orderCollection = new Dictionary<long, IOrder>();
+            orderCollection = new List<IOrder>();
             keyGen = new KeyFactory(KeyType.Next).KeyCreator();
 
-            orderCollection.Add(keyGen.NextKey, new Order(new DateTime(2017, 2, 5), new DateTime(2017, 1, 28), keyGen.NextKey));
-            orderCollection.Add(keyGen.NextKey, new Order(new DateTime(2017, 1, 30), new DateTime(2017, 1, 24), keyGen.NextKey));
-            orderCollection.Add(keyGen.NextKey, new Order(new DateTime(2017, 1, 25), new DateTime(2017, 1, 20), keyGen.NextKey));
-            orderCollection.Add(keyGen.NextKey, new Order(new DateTime(2017, 2, 12), new DateTime(2017, 1, 23), keyGen.NextKey));
+            orderCollection.Add(new Order(new DateTime(2017, 2, 5), new DateTime(2017, 1, 28), 1, keyGen.NextKey));
+            orderCollection.Add(new Order(new DateTime(2017, 1, 30), new DateTime(2017, 1, 24), 3, keyGen.NextKey));
+            orderCollection.Add(new Order(new DateTime(2017, 1, 25), new DateTime(2017, 1, 20), 3, keyGen.NextKey));
+            orderCollection.Add(new Order(new DateTime(2017, 2, 12), new DateTime(2017, 1, 23), 2, keyGen.NextKey));
         }
 
         public void AddOrder(IOrder order)
         {
-            orderCollection.Add(keyGen.NextKey, order);
+            orderCollection.Add(order);
         }
 
-        public void DeleteOrderById(long index)
+        public void DeleteOrderById(long id)
         {
-            orderCollection.Remove(index);
+            orderCollection.RemoveAll(x => x.OrderId == id);
         }
 
-        public void EditOrder(long index, DateTime orderDate, DateTime deliveryDate)
+        public void EditOrder(long id, DateTime orderDate, DateTime deliveryDate)
         {
-            orderCollection[index].OrderDate = orderDate;
-            orderCollection[index].DeliveryDate = deliveryDate;
+            orderCollection.Find(x => x.OrderId == id).OrderDate = orderDate;
+            orderCollection.Find(x => x.OrderId == id).DeliveryDate = deliveryDate;
         }
 
-        public void ProcessOrder(long index)
+        public void ProcessOrder(long id)
         {
-            orderCollection[index].Processed = true;
+            orderCollection.Find(x => x.OrderId == id).Processed = true;
         }
     }
 }

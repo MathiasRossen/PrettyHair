@@ -10,27 +10,21 @@ namespace PrettyHair.Core.Repositories
 {
     internal class OrderRepository
     {
-        private Dictionary<long, IOrder> Orders = new Dictionary<long, IOrder>();
-        private long id;
+        private List<IOrder> Orders = new List<IOrder>();
 
-        public Dictionary<long, IOrder> GetAllOrders()
+        public List<IOrder> GetAllOrders()
         {
             return Orders;
         }
 
-        public void CreateOrder(IOrder order)
+        private void AddOrder(IOrder order)
         {
-            //AddOrder(order, NextID(KeyType.Next));
-        }
-
-        private void AddOrder(IOrder order, long ID)
-        {
-            Orders.Add(ID, order);
+            Orders.Add(order);
         }
         
         public void RemoveByID(long ID)
         {
-            Orders.Remove(ID);
+            Orders.RemoveAll(x => x.CustomerID == ID);
         }
 
         public void Clear()
@@ -40,12 +34,7 @@ namespace PrettyHair.Core.Repositories
 
         public IOrder GetOrderByID(long ID)
         {
-            return Orders[ID];
+            return Orders.Find(x => x.CustomerID == ID);
         }
-
-        //private long NextID(KeyType keyType)
-        //{
-        //    return new KeyFactory().KeyCreator(keyType).NextKey;
-        //}
     }
 }

@@ -9,11 +9,11 @@ namespace PrettyHair.Core
 {
     public interface IFacade
     {
-        Dictionary<long,ICustomer> GetCustomers();
+        List<ICustomer> GetCustomers();
 
-        Dictionary<long,IItem> GetItems();
+        List<IItem> GetItems();
 
-        Dictionary< long,IOrder> GetOrders();
+        List<IOrder> GetOrders();
 
         void AddCustomer(string firstName, string lastName);
 

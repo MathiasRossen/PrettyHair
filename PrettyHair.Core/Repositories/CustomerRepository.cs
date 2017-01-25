@@ -11,23 +11,18 @@ namespace PrettyHair.Core.Repositories
 {
     internal class CustomerRepository
     {
-        private Dictionary<long, ICustomer> Customers = new Dictionary<long, ICustomer>();
+        private List<ICustomer> Customers = new List<ICustomer>();
         
         private long ID;
 
-        public Dictionary<long, ICustomer> GetAllCustomers()
+        public List<ICustomer> GetAllCustomers()
         {
             return Customers;
         }
 
-        public void CreateCustomer(ICustomer customer)
+        public void RemoveCustomerByID(int ID)
         {
-            AddCustomer(customer, NextID());
-        }
-
-        public void RemoveCustomerByID(long ID)
-        {
-            Customers.Remove(ID);
+            Customers.RemoveAt(ID);
         }
 
         public void Clear()
@@ -37,12 +32,12 @@ namespace PrettyHair.Core.Repositories
 
         public bool CustomerExistFromID(long ID)
         {
-            return Customers.ContainsKey(ID);
+            return Customers.Exists(x => x.CustomerId == ID);
         }
 
         public ICustomer GetCustomerByID(long ID)
         {
-            return Customers[ID];
+            return Customers.Find(x => x.CustomerId == ID);
         }
 
         private long NextID()
@@ -50,9 +45,9 @@ namespace PrettyHair.Core.Repositories
             return ++ID;
         }
 
-        private void AddCustomer(ICustomer customer, long ID)
+        private void AddCustomer(ICustomer customer)
         {
-            Customers.Add(ID, customer);
+            Customers.Add(customer);
         }
     }
 }

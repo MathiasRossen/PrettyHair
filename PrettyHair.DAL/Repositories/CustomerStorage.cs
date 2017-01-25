@@ -13,7 +13,7 @@ namespace PrettyHair.DAL.Repositories
         private static volatile CustomerStorage instance;
         private static object padLock = new object();
 
-        private Dictionary<long, ICustomer> customerCollection;
+        private List<ICustomer> customerCollection;
         private IEntityKeyGenerator keyGen;
 
         public static CustomerStorage Instance
@@ -34,37 +34,37 @@ namespace PrettyHair.DAL.Repositories
             }
         }
 
-        public Dictionary<long, ICustomer> CustomerCollection
+        public List<ICustomer> CustomerCollection
         {
             get { return customerCollection; }
         }
 
         private CustomerStorage()
         {
-            customerCollection = new Dictionary<long, ICustomer>();
+            customerCollection = new List<ICustomer>();
             keyGen = new KeyFactory(KeyType.Next).KeyCreator();
 
-            customerCollection.Add(keyGen.NextKey, new Customer("Per", "Hansen"));
-            customerCollection.Add(keyGen.NextKey, new Customer("Lone", "Christensen"));
-            customerCollection.Add(keyGen.NextKey, new Customer("Tyrone", "Jackson"));
-            customerCollection.Add(keyGen.NextKey, new Customer("Kim", "Møller"));
-            customerCollection.Add(keyGen.NextKey, new Customer("Nikolaj", "Grill"));
+            customerCollection.Add(new Customer("Per", "Hansen", keyGen.NextKey));
+            customerCollection.Add(new Customer("Lone", "Christensen", keyGen.NextKey));
+            customerCollection.Add(new Customer("Tyrone", "Jackson", keyGen.NextKey));
+            customerCollection.Add(new Customer("Kim", "Møller", keyGen.NextKey));
+            customerCollection.Add(new Customer("Nikolaj", "Grill", keyGen.NextKey));
         }
 
         public void AddCustomer(ICustomer customer)
         {
-            customerCollection.Add(keyGen.NextKey, customer);
+            customerCollection.Add(customer);
         }
 
-        public void DeleteCustomerById(long index)
+        public void DeleteCustomerById(long id)
         {
-            customerCollection.Remove(index);
+            customerCollection.RemoveAll(x => x.CustomerId == id);
         }
 
-        public void EditCustomer(long index, string firstName, string lastName)
+        public void EditCustomer(long id, string firstName, string lastName)
         {
-            customerCollection[index].Firstname = firstName;
-            customerCollection[index].Lastname = lastName;
+            customerCollection.Find(x => x.CustomerId == id).Firstname = firstName;
+            customerCollection.Find(x => x.CustomerId == id).Lastname = lastName;
         }
     }
 }

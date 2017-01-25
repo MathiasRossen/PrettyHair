@@ -10,5 +10,6 @@ namespace PrettyHair.Core.Interfaces
     {
         string Firstname { get; set; }
         string Lastname  { get; set; }
+        long CustomerId { get; }
     }
 }

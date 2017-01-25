@@ -37,7 +37,7 @@ namespace PrettyHair.DAL
             }
         }
 
-        public Dictionary<long, ICustomer> CustomerCollection
+        public List<ICustomer> CustomerCollection
         {
             get
             {
@@ -45,7 +45,7 @@ namespace PrettyHair.DAL
             }
         }
 
-        public Dictionary<long, IItem> ItemCollection
+        public List<IItem> ItemCollection
         {
             get
             {
@@ -53,7 +53,7 @@ namespace PrettyHair.DAL
             }
         }
 
-        public Dictionary<long, IOrder> OrderCollection
+        public List<IOrder> OrderCollection
         {
             get
             {

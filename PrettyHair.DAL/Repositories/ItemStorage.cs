@@ -15,7 +15,7 @@ namespace PrettyHair.DAL.Repositories
         private static volatile ItemStorage instance;
         private static object padLock = new object();
 
-        private Dictionary<long, IItem> itemCollection;
+        private List<IItem> itemCollection;
         private IEntityKeyGenerator keyGen;
 
         public static ItemStorage Instance
@@ -36,40 +36,40 @@ namespace PrettyHair.DAL.Repositories
             }
         }
 
-        public Dictionary<long, IItem> ItemCollection
+        public List<IItem> ItemCollection
         {
             get { return itemCollection; }
         }
 
         private ItemStorage()
         {
-            itemCollection = new Dictionary<long, IItem>();
+            itemCollection = new List<IItem>();
             keyGen = new KeyFactory(KeyType.Next).KeyCreator();
 
-            itemCollection.Add(keyGen.NextKey, new Item("Saks", "Saks til hår", 299.95, 10));
-            itemCollection.Add(keyGen.NextKey, new Item("Trimmer", "Mach 3 turbo!", 349.95, 5));
-            itemCollection.Add(keyGen.NextKey, new Item("Shampoo", "Sanex", 29.95, 52));
-            itemCollection.Add(keyGen.NextKey, new Item("Damplokomotiv", "Gammelt tog fra 1902", 1199995.95, 1));
-            itemCollection.Add(keyGen.NextKey, new Item("Dank weed", "Don't let your memes be dreams!", 420, 9001));
-            itemCollection.Add(keyGen.NextKey, new Item("Hår Børste", "Til håret!", 10, 3));
+            itemCollection.Add(new Item("Saks", "Saks til hår", 299.95, 10, keyGen.NextKey));
+            itemCollection.Add(new Item("Trimmer", "Mach 3 turbo!", 349.95, 5, keyGen.NextKey));
+            itemCollection.Add(new Item("Shampoo", "Sanex", 29.95, 52, keyGen.NextKey));
+            itemCollection.Add(new Item("Damplokomotiv", "Gammelt tog fra 1902", 1199995.95, 1, keyGen.NextKey));
+            itemCollection.Add(new Item("Dank weed", "Don't let your memes be dreams!", 420, 9001, keyGen.NextKey));
+            itemCollection.Add(new Item("Hår Børste", "Til håret!", 10, 3, keyGen.NextKey));
         }
 
         public void AddItem(IItem item)
         {
-            itemCollection.Add(keyGen.NextKey, item);
+            itemCollection.Add(item);
         }
 
-        public void DeleteItemById(long index)
+        public void DeleteItemById(long id)
         {
-            itemCollection.Remove(index);
+            itemCollection.RemoveAll(x => x.ItemId == id);
         }
 
-        public void EditItem(long index, string name, string description, double price, int amount)
+        public void EditItem(long id, string name, string description, double price, int amount)
         {
-            itemCollection[index].Name = name;
-            itemCollection[index].Description = description;
-            itemCollection[index].Price = price;
-            itemCollection[index].Amount = amount;
+            itemCollection.Find(x => x.ItemId == id).Name = name;
+            itemCollection.Find(x => x.ItemId == id).Description = description;
+            itemCollection.Find(x => x.ItemId == id).Price = price;
+            itemCollection.Find(x => x.ItemId == id).Amount = amount;
         }
     }
 }

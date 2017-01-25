@@ -12,5 +12,6 @@ namespace PrettyHair.Core.Interfaces
         DateTime DeliveryDate { get; set; }
         long     CustomerID   { get; set; }
         bool     Processed    { get; set; }
+        long OrderId { get; }
     }
 }
