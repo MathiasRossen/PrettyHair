@@ -12,8 +12,9 @@
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type data:Customer}">
             <StackPanel Orientation="Horizontal">
-                <TextBox Text="{Binding Path=Firstname}"/>
-                <TextBox Text="{Binding Path=Lastname }"/>
+                <TextBlock Text="{Binding Path=CustomerId}" Width="10" Margin="5"/>
+                <TextBox Text="{Binding Path=Firstname}" Width="100" Margin="5"/>
+                <TextBox Text="{Binding Path=Lastname }" Width="100" Margin="5"/>
             </StackPanel>            
         </DataTemplate>
     </UserControl.Resources>
