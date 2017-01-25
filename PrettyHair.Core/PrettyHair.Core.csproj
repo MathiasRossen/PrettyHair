@@ -41,7 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CoreFacade.cs" />
+    <Compile Include="DALFacade.cs" />
     <Compile Include="Entities\Customer.cs" />
+    <Compile Include="EntityKeyGeneratorDate.cs" />
+    <Compile Include="EntityKeyGeneratorNext.cs" />
+    <Compile Include="EntityKeyGeneratorRandom.cs" />
+    <Compile Include="IEntityKeyGenerator.cs" />
+    <Compile Include="KeyFactory.cs" />
     <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Entities\Item.cs" />
     <Compile Include="Entities\Order.cs" />
@@ -56,13 +62,14 @@
     <Compile Include="Repositories\CustomerRepository.cs" />
     <Compile Include="Repositories\ItemRepository.cs" />
     <Compile Include="Repositories\OrderlineRepository.cs" />
+    <Compile Include="Storage\CustomerStorage.cs" />
+    <Compile Include="Storage\ItemStorage.cs" />
+    <Compile Include="Storage\OrderStorage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
