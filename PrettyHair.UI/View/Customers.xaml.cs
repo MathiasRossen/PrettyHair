@@ -23,6 +23,7 @@ namespace PrettyHair.UI.View
         public Customer()
         {
             InitializeComponent();
+            DataContext = new ViewModel.CustomersViewModel();
         }
     }
 }
