@@ -17,7 +17,8 @@ namespace PrettyHair.UI.ViewModel
         private ObservableCollection<ICustomer> testCollection = new ObservableCollection<ICustomer>();
         public ObservableCollection<ICustomer> CustomerCollection
         {
-            get { return new ObservableCollection<ICustomer>(coreFacade.GetCustomers()); }
+            //get { return new ObservableCollection<ICustomer>(coreFacade.GetCustomers()); }
+            get { return testCollection; }
         }
 
         public CustomersViewModel()
