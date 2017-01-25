@@ -7,19 +7,6 @@
              xmlns:data="clr-namespace:PrettyHair.UI.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <UserControl.Resources>
-        <DataTemplate DataType="{x:Array data:CustomersViewModel}">
-
-            <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding Path=FirstName, Mode=OneWay}" Width="100" Margin="1, 1, 1, 1" />
-            </StackPanel>
-            
-        </DataTemplate>
-    </UserControl.Resources>
-    
     <Grid>
-        <ListBox ItemsSource="{Binding CustomerCollection}" Width="300" Margin="0, 0, 0, 0">
-            <TextBlock Text="{Binding FirstName}" />
-        </ListBox>
     </Grid>
 </UserControl>
