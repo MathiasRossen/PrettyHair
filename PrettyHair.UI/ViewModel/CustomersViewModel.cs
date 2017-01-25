@@ -24,10 +24,10 @@ namespace PrettyHair.UI.ViewModel
         public CustomersViewModel()
         {
             testCollection.Add(new Customer("Hans", "Hansen", 1));
-            testCollection.Add(new Customer("Peter", "Petersen", 1));
-            testCollection.Add(new Customer("Jens", "Jensen", 1));
-            testCollection.Add(new Customer("Kim", "Fuhrer", 1));
-            testCollection.Add(new Customer("Søren", "Hansen", 1));
+            testCollection.Add(new Customer("Peter", "Petersen", 2));
+            testCollection.Add(new Customer("Jens", "Jensen", 3));
+            testCollection.Add(new Customer("Kim", "Fuhrer", 4));
+            testCollection.Add(new Customer("Søren", "Hansen", 5));
         }
     }
 }
