@@ -50,7 +50,7 @@ namespace PrettyHair.Core
 
         public void AddItem(string name, string description, double price, int amount)
         {
-            ir.AddItems(name, description, price, amount, 1);
+            //ir.AddItems(name, description, price, amount, 1);
         }
 
         public void CreateOrder(DateTime orderDate, DateTime deliveryDate, long customerID)
