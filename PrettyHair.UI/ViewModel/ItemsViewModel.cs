@@ -4,8 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PrettyHair.Core;
-using PrettyHair.Core.Interfaces;
-using PrettyHair.Core.Entities;
+using PrettyHair.Domain.Interfaces;
+using PrettyHair.Domain.Entities;
 using System.Collections.ObjectModel;
 
 namespace PrettyHair.UI.ViewModel
