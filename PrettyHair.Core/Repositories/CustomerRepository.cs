@@ -6,18 +6,27 @@ using System.Threading.Tasks;
 using PrettyHair.Domain.Entities;
 using PrettyHair.Domain.Interfaces;
 using System.Collections.ObjectModel;
+using PrettyHair.DAL;
 
 namespace PrettyHair.Core.Repositories
 {
     internal class CustomerRepository
     {
+        private DALFacade DALF = DALFacade.Instance;
         private List<ICustomer> Customers = new List<ICustomer>();
         
         private long ID;
 
         public List<ICustomer> GetAllCustomers()
         {
+            RefreshCustomers();
             return Customers;
+        }
+
+        public void RefreshCustomers()
+        {
+            Customers.Clear();
+            Customers = DALF.CustomerCollection;
         }
 
         public void RemoveCustomerByID(int ID)
