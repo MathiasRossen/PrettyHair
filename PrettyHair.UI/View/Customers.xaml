@@ -12,14 +12,19 @@
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type data:Customer}">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="{Binding Path=CustomerId}" Width="10" Margin="5"/>
+                <TextBlock Text="{Binding Path=CustomerId}" Width="15" Margin="5"/>
                 <TextBox Text="{Binding Path=Firstname, Mode=TwoWay}" Width="100" Margin="5"/>
                 <TextBox Text="{Binding Path=Lastname, Mode=TwoWay}" Width="100" Margin="5"/>
-            </StackPanel>            
+            </StackPanel>
         </DataTemplate>
     </UserControl.Resources>
-    
+
     <Grid>
         <ListBox ItemsSource="{Binding CustomerCollection}"/>
+        <Button Content="Add Customer" Width="100" Height="20" Margin="190,262,10,18"/>
+        <TextBox Width="100" Height="20" Margin="80,262,120,18"/>
+        <TextBox Width="100" Height="20" Margin="80,242,120,38" />
+        <TextBlock Text="Firstname:" Width="100" Height="20" Margin="10,244,190,36"/>
+        <TextBlock Text="Lastname:" Width="100" Height="20" Margin="10,264,190,16"/>
     </Grid>
 </UserControl>
