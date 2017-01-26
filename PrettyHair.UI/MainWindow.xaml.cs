@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using PrettyHair.UI.View;
+using PrettyHair.UI.ViewModel;
 
 namespace PrettyHair.UI
 {
@@ -23,9 +24,30 @@ namespace PrettyHair.UI
 
 
     {
+        CustomersViewModel cvm = new CustomersViewModel();
+        
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void CustomerViewControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void OrderViewControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ItemViewControl_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
         }
     }
 }

@@ -10,13 +10,13 @@
     <Grid>
         <TabControl>
             <TabItem Header="Customer">
-                <views:Customer x:Name ="CustomerViewControl" />
+                <views:Customer x:Name ="CustomerViewControl" Loaded="CustomerViewControl_Loaded" />
             </TabItem>
             <TabItem Header="Orders">
-                <views:Orders x:Name="OrderViewControl" />
+                <views:Orders x:Name="OrderViewControl" Loaded="OrderViewControl_Loaded" />
             </TabItem>
             <TabItem Header="Items">
-                <views:Items x:Name="ItemViewControl" />
+                <views:Items x:Name="ItemViewControl" Loaded="ItemViewControl_Loaded" />
             </TabItem>
         </TabControl>
     </Grid>
