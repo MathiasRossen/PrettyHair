@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PrettyHair.Core.Interfaces;
+using PrettyHair.Domain.Interfaces;
 using PrettyHair.Core.Repositories;
-using PrettyHair.Core.Entities;
+using PrettyHair.Domain.Entities;
 
 namespace PrettyHair.Core
 {
-    public class CoreFacade : IFacade
+    public class CoreFacade : ICoreFacade
     {
         private static volatile CoreFacade instance;
         private static object padLock = new object();

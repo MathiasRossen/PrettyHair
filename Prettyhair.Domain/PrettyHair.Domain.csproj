@@ -4,13 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{82214339-D41A-40BC-BF7E-3A9DD7B9CD12}</ProjectGuid>
+    <ProjectGuid>{43ED4761-B6CE-4DC9-B3EA-862EB2FF6F9C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PrettyHair.Core</RootNamespace>
-    <AssemblyName>PrettyHair.Core</AssemblyName>
+    <RootNamespace>PrettyHair.Domain</RootNamespace>
+    <AssemblyName>PrettyHair.Domain</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -40,23 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CoreFacade.cs" />
-    <Compile Include="Repositories\OrderRepository.cs" />
-    <Compile Include="Helpers\Validation.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\Item.cs" />
+    <Compile Include="Entities\Order.cs" />
+    <Compile Include="Entities\Orderline.cs" />
+    <Compile Include="Interfaces\ICustomer.cs" />
+    <Compile Include="Interfaces\IEntityKeyGenerator.cs" />
+    <Compile Include="Interfaces\ICoreFacade.cs" />
+    <Compile Include="Interfaces\IItem.cs" />
+    <Compile Include="Interfaces\IOrder.cs" />
+    <Compile Include="Interfaces\IOrderline.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\CustomerRepository.cs" />
-    <Compile Include="Repositories\ItemRepository.cs" />
-    <Compile Include="Repositories\OrderlineRepository.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PrettyHair.DAL\PrettyHair.DAL.csproj">
-      <Project>{92dfa538-feab-4d2f-9eab-cdd3785343a9}</Project>
-      <Name>PrettyHair.DAL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Prettyhair.Domain\PrettyHair.Domain.csproj">
-      <Project>{43ed4761-b6ce-4dc9-b3ea-862eb2ff6f9c}</Project>
-      <Name>PrettyHair.Domain</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

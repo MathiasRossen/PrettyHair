@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrettyHair.Core.Interfaces
+namespace PrettyHair.Domain.Interfaces
 {
     public interface IItem
     {

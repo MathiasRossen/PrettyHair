@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PrettyHair.Core.Interfaces;
+using PrettyHair.Domain.Interfaces;
 
-namespace PrettyHair.Core.Entities
+namespace PrettyHair.Domain.Entities
 {
     public class Orderline : IOrderline
     {

@@ -124,6 +124,10 @@
       <Project>{82214339-d41a-40bc-bf7e-3a9dd7b9cd12}</Project>
       <Name>PrettyHair.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Prettyhair.Domain\PrettyHair.Domain.csproj">
+      <Project>{43ed4761-b6ce-4dc9-b3ea-862eb2ff6f9c}</Project>
+      <Name>PrettyHair.Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

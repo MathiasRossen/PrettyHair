@@ -5,8 +5,8 @@ using System.Text;
 using System.Data;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
-using PrettyHair.Core.Interfaces;
-using PrettyHair.Core.Entities;
+using PrettyHair.Domain.Interfaces;
+using PrettyHair.Domain.Entities;
 
 namespace PrettyHair.DAL.Repositories
 {

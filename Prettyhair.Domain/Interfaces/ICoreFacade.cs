@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PrettyHair.Core.Interfaces;
+using PrettyHair.Domain.Interfaces;
 
-namespace PrettyHair.Core
+namespace PrettyHair.Domain.Interfaces
 {
-    public interface IFacade
+    public interface ICoreFacade
     {
         List<ICustomer> GetCustomers();
 
