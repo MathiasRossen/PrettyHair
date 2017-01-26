@@ -23,6 +23,7 @@ namespace PrettyHair.UI.View
         public Orders()
         {
             InitializeComponent();
+            DataContext = new ViewModel.OrdersViewModel();
         }
     }
 }
