@@ -12,7 +12,8 @@ namespace PrettyHair.Core.Repositories
 {
     internal class CustomerRepository
     {
-        private DALFacade DALF = DALFacade.Instance;
+        
+
         private List<ICustomer> Customers = new List<ICustomer>();
         
         private long ID;
@@ -26,7 +27,22 @@ namespace PrettyHair.Core.Repositories
         public void RefreshCustomers()
         {
             Customers.Clear();
-            Customers = DALF.CustomerCollection;
+            
+        }
+
+        public void RemoveCustomerByID(int ID)
+        {
+            Customers.RemoveAt(ID);
+        }
+
+        public void Clear()
+        {
+            Customers.Clear();
+        }
+
+        public bool CustomerExistFromID(long ID)
+        {
+            return Customers.Exists(x => x.CustomerId == ID);
         }
 
         public ICustomer GetCustomerByID(long ID)
@@ -34,9 +50,14 @@ namespace PrettyHair.Core.Repositories
             return Customers.Find(x => x.CustomerId == ID);
         }
 
+        private long NextID()
+        {
+            return ++ID;
+        }
+
         private void AddCustomer(ICustomer customer)
         {
-            DALF.AddCustomer(customer);
+            Customers.Add(customer);
         }
     }
 }
