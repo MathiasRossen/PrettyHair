@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using PrettyHair.Core.Entities;
-using PrettyHair.Core.Interfaces;
+using PrettyHair.Domain.Entities;
+using PrettyHair.Domain.Interfaces;
 
 namespace PrettyHair.DAL.Repositories
 {

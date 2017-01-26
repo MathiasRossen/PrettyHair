@@ -1,4 +1,4 @@
-﻿namespace PrettyHair.DAL
+﻿namespace PrettyHair.Domain.Interfaces
 {
     public interface IEntityKeyGenerator
     {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using PrettyHair.DAL.Repositories;
 using System.Data.SqlClient;
 using System.Data;
-using PrettyHair.Core.Interfaces;
+using PrettyHair.Domain.Interfaces;
 
 namespace PrettyHair.DAL
 {
