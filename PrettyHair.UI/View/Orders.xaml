@@ -5,22 +5,29 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:PrettyHair.UI.View"
              xmlns:Data="clr-namespace:PrettyHair.Domain.Entities;assembly=PrettyHair.Domain"
+             xmlns:viewModel="clr-namespace:PrettyHair.UI.ViewModel"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
 
     <UserControl.Resources>
         <DataTemplate DataType="{x:Type Data:Order}">
             <StackPanel Orientation="Horizontal">
-                <TextBox Text="{Binding Path=OrderDate, Mode=TwoWay}" Width="120" Margin="5"/>
-                <TextBox Text="{Binding Path=DeliveryDate, Mode=TwoWay}" Width="120" Margin="5"/>
-                <TextBox Text="{Binding Path=CustomerID, Mode=TwoWay}" Width="100" Margin="5"/>
-                <TextBox Text="{Binding Path=Processed, Mode=TwoWay}" Width="100" Margin="5"/>
-                <TextBox Text="{Binding Path=OrderId, Mode=OneWay}" Width="100" Margin="5"/>
+                <Label Content="OrderDate" />
+                <TextBox Text="{Binding Path=OrderDate, Mode=TwoWay}" Width="130" Margin="5"/>
+                <Label Content="DeliveryDate" />
+                <TextBox Text="{Binding Path=DeliveryDate, Mode=TwoWay}" Width="130" Margin="5"/>
+                <Label Content="CustomerID" />
+                <TextBox Text="{Binding Path=CustomerID, Mode=TwoWay}" Width="40" Margin="5"/>
+                <Label Content="Processed" />
+                <TextBox Text="{Binding Path=Processed, Mode=TwoWay}" Width="40" Margin="5"/>
+                <Label Content="OrderID" />
+                <TextBox Text="{Binding Path=OrderId, Mode=OneWay}" Width="40" Margin="5"/>
             </StackPanel>
         </DataTemplate>
     </UserControl.Resources>
 
     <Grid>
+        
         <ListBox ItemsSource="{Binding OrdersCollection}"/>
     </Grid>
 </UserControl>

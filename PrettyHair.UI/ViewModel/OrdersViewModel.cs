@@ -13,17 +13,9 @@ namespace PrettyHair.UI.ViewModel
     public class OrdersViewModel
     {
         private CoreFacade coreFacade = CoreFacade.Instance;
-
-        private ObservableCollection<IOrder> testCollection = new ObservableCollection<IOrder>();
         public ObservableCollection<IOrder> OrdersCollection
         {
-            //get { return new ObservableCollection<ICustomer>(coreFacade.GetCustomers()); }
-            get { return testCollection; }
-        }
-
-        public OrdersViewModel()
-        {
-            testCollection.Add(new Order(DateTime.Now.AddDays(1), DateTime.Now, 65, 66));
+            get { return new ObservableCollection<IOrder>(coreFacade.GetOrders()); }
         }
     }
 }
